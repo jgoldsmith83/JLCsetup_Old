@@ -1,0 +1,38 @@
+#!/bin/bash
+
+direc=$(pwd)
+
+
+function menu() {
+	clear
+	echo "Select option:"
+	echo 
+	echo "1. New Setup"
+	echo "2. Undo Setup"
+	echo "3. Exit"
+	echo
+	echo
+	read -p "> " _do
+}
+
+function parse_choice() {
+	if [ $_do = 1 ]; then
+		cd libs
+		su -c ./resmake.sh root
+	elif [ $_do = 2 ]; then
+		cd libs
+		su -c ./resundo.sh root
+	elif [ $_do = 3 ]; then
+		clear
+		exit
+	else
+		echo -ne "\n\nAvailable options are 1, 2, or 3...\n"
+		sleep 2
+		menu
+	fi
+}
+
+menu
+parse_choice
+
+
