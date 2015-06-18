@@ -29,7 +29,7 @@ def display_menu():
     #get_choice()
     #parse_choice()
 
-def new_event(event):
+def do_it():
     #title = LabelFrame(root,text="JLC Ubuntu Setup")
     #title.pack()
 
@@ -38,12 +38,7 @@ def new_event(event):
 
     #back = Button(new_frame,text="IT WORKS!",command=root.main_loop)
     #back.pack()
-    #print "This works."
-    exec("python JLC\ User\ Setup/libs/resmakeTest.sh")
-
-def undo_event(event):
-    #print "This works, too."
-    exec("python JLC\ User\ Setup/libs/resundoTest.sh")
+    tk_getOpenFile()
 
 
 
@@ -61,20 +56,17 @@ title.pack()
 
 new_frame = Frame(title)
 new_frame.pack()
-new = Button(new_frame,text="New Setup")
-new.bind("<Button-1>", new_event)
+new = Button(new_frame,text="New Setup",command=do_it)
 new.pack()
 
 undo_frame = Frame(title)
 undo_frame.pack()
 undo = Button(undo_frame,text="Undo Setup")
-undo.bind("<Button-1>", undo_event)
 undo.pack()
 
 exit_frame = Frame(title)
 exit_frame.pack()
 exit = Button(exit_frame,text="exit")
-exit.bind("<Button-1>", quit)
 exit.pack()
 
 root.mainloop()
