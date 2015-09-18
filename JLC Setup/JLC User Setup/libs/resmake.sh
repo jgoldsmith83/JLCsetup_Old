@@ -63,10 +63,10 @@ echo '	3. Press enter to exit nano and continue'
 echo '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
 echo ' '
 countdown 20
-#--sudo nano /etc/fstab
+sudo nano /etc/fstab
 
 #remount the root partition so we can begin setting acl restrcitions
-#--sudo mount -o remount / > ~/Desktop/test_out.txt
+sudo mount -o remount / > ~/Desktop/test_out.txt
 
 
 #Now begin setting permissions of 'jobsearch' user
@@ -172,7 +172,7 @@ echo " "
 echo " "
 read -p "Reboot [now] or [wait]? " _reboot
 
-function reboot_func() {
+function reboot_option() {
 
     if [$_reboot == "now"]
     then
@@ -188,8 +188,5 @@ function reboot_func() {
 
 }
 
-reboot_func
+reboot_option
 
-#countdown 30
-
-#reboot now
